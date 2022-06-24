@@ -14,6 +14,7 @@ jobs:
           ls
       - name: Simple JS Action
         id: greet
+        # you can ask for a git tag(v1) or a specific commit
         uses: actions/hello-world-javascript-action@v1
         # arguments to "functions". These should be described in the repo
         with:
