@@ -1,17 +1,27 @@
 name: Actions Workflow
-
+# describe which event will trigger this workflow
 on: [push]
 
 jobs:
+  # the job name can be anything 
   run-github-actions:
+    # ask for an operating system
     runs-on: ubuntu-latest
     steps:
+      - name: List Files
+        run: |
+          pwd
+          ls
       - name: Simple JS Action
         id: greet
         uses: actions/hello-world-javascript-action@v1
+        # arguments to "functions". These should be described in the repo
         with:
           who-to-greet: John
       - name: Log Greeting Time
+        # pipe operator allows multiple statements:
+        # conversely > returns a single line
         run: |
           echo "${{ steps.greet.outputs.time }}"
           echo "You rock today!"
+        # syntax to get output: steps.STEP-ID.outputs.VARIABLE
