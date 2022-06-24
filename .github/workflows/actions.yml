@@ -8,10 +8,13 @@ jobs:
     # ask for an operating system
     runs-on: ubuntu-latest
     steps:
-      - name: List Files
+      - name: Checkout coming
+        uses: actions/checkout@v1
+
+      - name: List Files after checkout
         run: |
           pwd
-          ls
+          ls -a
       - name: Simple JS Action
         id: greet
         # you can ask for a git tag(v1) or a specific commit
